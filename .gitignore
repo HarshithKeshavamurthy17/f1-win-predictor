@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+data_collection.log
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# Don't commit large data files (we'll regenerate them)
+# But keep the directory structure
+data/raw/*.parquet
+data/raw/*.csv
+!data/raw/.gitkeep
+
+# Keep models directory but not the large model files
+data/curated/models/*.parquet
+!data/curated/models/.gitkeep
+
+# Keep other curated data
+# (these are smaller and needed for the app)
+
