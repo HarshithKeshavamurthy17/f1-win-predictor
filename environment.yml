@@ -1,34 +1,24 @@
 name: f1-win
 
-channels: [conda-forge, defaults]
+channels:
+  - conda-forge
+  - defaults
 
 dependencies:
-
   - python=3.11
-
   - numpy
-
   - pandas
-
   - scikit-learn
-
-  - xgboost
-
   - matplotlib
-
   - ipykernel
-
   - jupyterlab
-
   - requests
-
   - pyarrow
-
   - seaborn
-
-  - shap
-
   - streamlit
-
-  - plotly
+  - pip
+  - pip:
+    - plotly==5.18.0
+    - tenacity>=8.0.0
+    - packaging>=21.0
 
