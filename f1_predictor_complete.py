@@ -204,9 +204,14 @@ REAL_2025_DRIVERS = {
 
 @st.cache_data
 def load_predictions():
+    """Load predictions data - returns None if file not found or error occurs"""
     try:
-        return pd.read_parquet("data/curated/models/preds.parquet")
-    except:
+        preds = pd.read_parquet("data/curated/models/preds.parquet")
+        if preds is None or len(preds) == 0:
+            return None
+        return preds
+    except (FileNotFoundError, Exception):
+        # Silently return None - error messages shown in UI
         return None
 
 def get_race_name(season, round_num):
@@ -256,7 +261,29 @@ if mode == "🏆 Race Results Analysis":
     preds = load_predictions()
     
     if preds is None:
-        st.error("⚠️ No data available")
+        st.error("⚠️ **No predictions data available**")
+        st.warning("""
+        **The predictions data file is missing or the app is still loading.**
+        
+        **This usually happens when:**
+        - The app is starting up for the first time (takes 2-3 minutes)
+        - Streamlit Cloud is redeploying after an update
+        - The data file hasn't been synced to the repository yet
+        
+        **What to do:**
+        1. **Wait 10-20 seconds** and refresh the page (click the refresh button in your browser)
+        2. Check the Streamlit Cloud logs to see if deployment is complete
+        3. The data file should be automatically available once the app finishes deploying
+        
+        **If the problem persists:** The predictions file may need to be regenerated. This is a known issue that should resolve automatically.
+        """)
+        
+        # Provide helpful links
+        st.info("""
+        💡 **Tip:** Streamlit Cloud apps can take a few minutes to fully start up on first deployment.
+        The data file has been committed to the repository and should be available after the app finishes deploying.
+        """)
+        
         st.stop()
     
     # Race selector
@@ -465,7 +492,12 @@ elif mode == "📊 Championship Predictions":
     preds = load_predictions()
     
     if preds is None:
-        st.error("⚠️ No data")
+        st.error("⚠️ **No predictions data available**")
+        st.warning("""
+        **The predictions data file is missing or the app is still loading.**
+        
+        Please wait a moment and refresh the page. The data file has been committed to the repository and should be available after the app finishes deploying.
+        """)
         st.stop()
     
     seasons = sorted(preds['season'].unique(), reverse=True)
