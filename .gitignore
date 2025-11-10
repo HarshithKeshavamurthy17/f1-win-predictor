@@ -54,9 +54,15 @@ data/raw/*.csv
 !data/raw/.gitkeep
 
 # Keep models directory but not the large model files
+# BUT allow predictions file (small and needed for app)
 data/curated/models/*.parquet
+!data/curated/models/preds.parquet
 !data/curated/models/.gitkeep
 
-# Keep other curated data
-# (these are smaller and needed for the app)
+# Keep curated data files (small and needed for app)
+!data/curated/f1_training.parquet
+!data/curated/f1_training_base.parquet
+!data/curated/races.parquet
+!data/curated/driver_race.parquet
+
 
