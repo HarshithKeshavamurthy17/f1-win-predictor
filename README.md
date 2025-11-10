@@ -65,7 +65,9 @@ The model uses **25 research-based features** that capture real F1 racing dynami
 
 ## 🚀 Live Demo
 
-**Try it now:** [F1 Predictor Live App](https://your-app-url.streamlit.app)
+**Try it now:** [F1 Predictor Live App](https://f1-win-predictor-app.streamlit.app)
+
+> 💡 **Monitoring:** This app is monitored 24/7 with [Uptime Robot](https://uptimerobot.com/) to ensure 99.9%+ uptime and keep the app always active. See [UPTIME_ROBOT_SETUP.md](UPTIME_ROBOT_SETUP.md) for setup instructions.
 
 ---
 
