@@ -1,0 +1,43 @@
+name: Streamlit Keep-Alive
+
+on:
+  # Run every 15 minutes
+  schedule:
+    - cron: "*/15 * * * *"
+  
+  # Allow manual triggering
+  workflow_dispatch:
+
+jobs:
+  keep-alive:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+      
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install selenium webdriver-manager
+      
+      - name: Install Chrome
+        uses: browser-actions/setup-chrome@v1
+        with:
+          chrome-version: stable
+      
+      - name: Run keep-alive script
+        env:
+          STREAMLIT_APP_URL: ${{ secrets.STREAMLIT_APP_URL }}
+        run: |
+          python scripts/keep_alive.py
+      
+      - name: Log completion
+        if: always()
+        run: |
+          echo "Keep-alive check completed at $(date)"
