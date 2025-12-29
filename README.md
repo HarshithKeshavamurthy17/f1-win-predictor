@@ -1,6 +1,6 @@
 # 🏎️ F1 Race Win Predictor
 
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-url.streamlit.app)
+[![Live App](https://img.shields.io/badge/View-Live%20Demo-blue)](https://f1-win-predictor-production.up.railway.app)
 
 A professional machine learning system that predicts Formula 1 race winners with **95.3% accuracy** using 30 years of historical data (1995-2024).
 
@@ -65,9 +65,9 @@ The model uses **25 research-based features** that capture real F1 racing dynami
 
 ## 🚀 Live Demo
 
-**Try it now:** [F1 Predictor Live App](https://f1-win-predictor-app.streamlit.app)
+**Try it now:** [F1 Predictor Live App](https://f1-win-predictor-production.up.railway.app)
 
-> 💡 **Monitoring:** This app is monitored 24/7 with [Uptime Robot](https://uptimerobot.com/) to ensure 99.9%+ uptime and keep the app always active. See [UPTIME_ROBOT_SETUP.md](UPTIME_ROBOT_SETUP.md) for setup instructions.
+> 💡 **Note:** This app uses Railway's free tier. If it hasn't been visited recently, it may take 10-30 seconds to wake up. This is normal behavior for free hosting.
 
 ---
 
